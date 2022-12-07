@@ -2,21 +2,20 @@ import run from "aocrunner";
 
 const parseInput = (rawInput) => rawInput.split("\n");
 const sumDirectory = (directory, allowedDirs, sumTest) => {
-  let sum = 0;
-  for (const [name, item] of Object.entries(directory)) {
+  return Object.entries(directory).reduce((acc, [name, item]) => {
     if (name !== "..") {
       if (isNaN(item)) {
         const dirSum = sumDirectory(item, allowedDirs, sumTest);
         if (sumTest(dirSum)) {
           allowedDirs.push(dirSum);
         }
-        sum += dirSum;
+        acc += dirSum;
       } else {
-        sum += item;
+        acc += item;
       }
     }
-  }
-  return sum;
+    return acc;
+  }, 0);
 };
 
 const getFs = (stdout) => {
