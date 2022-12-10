@@ -5,16 +5,16 @@
   "days": [
     {
       "part1": {
-        "solved": false,
+        "solved": true,
         "result": "69177",
         "attempts": [],
-        "time": 0.576447
+        "time": 0.4145
       },
       "part2": {
-        "solved": false,
+        "solved": true,
         "result": "207456",
         "attempts": [],
-        "time": 0.599875
+        "time": 0.436693
       }
     },
     {
@@ -63,10 +63,7 @@
       "part1": {
         "solved": true,
         "result": "SHQWSRBDL",
-        "attempts": [
-          "RFQBBLLSS",
-          "SZQWSRBDL"
-        ],
+        "attempts": ["RFQBBLLSS", "SZQWSRBDL"],
         "time": 1.063419
       },
       "part2": {
@@ -94,18 +91,13 @@
       "part1": {
         "solved": true,
         "result": "1749646",
-        "attempts": [
-          "1845083",
-          "282555"
-        ],
+        "attempts": ["1845083", "282555"],
         "time": 2.447608
       },
       "part2": {
         "solved": true,
         "result": "1498966",
-        "attempts": [
-          "33688513"
-        ],
+        "attempts": ["33688513"],
         "time": 2.311973
       }
     },
@@ -113,9 +105,7 @@
       "part1": {
         "solved": true,
         "result": "1713",
-        "attempts": [
-          "3420"
-        ],
+        "attempts": ["3420"],
         "time": 74.281219
       },
       "part2": {
@@ -129,9 +119,7 @@
       "part1": {
         "solved": true,
         "result": "6018",
-        "attempts": [
-          "6017"
-        ],
+        "attempts": ["6017"],
         "time": 12.951641
       },
       "part2": {
