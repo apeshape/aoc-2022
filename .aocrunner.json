@@ -63,7 +63,10 @@
       "part1": {
         "solved": true,
         "result": "SHQWSRBDL",
-        "attempts": ["RFQBBLLSS", "SZQWSRBDL"],
+        "attempts": [
+          "RFQBBLLSS",
+          "SZQWSRBDL"
+        ],
         "time": 1.063419
       },
       "part2": {
@@ -91,13 +94,18 @@
       "part1": {
         "solved": true,
         "result": "1749646",
-        "attempts": ["1845083", "282555"],
+        "attempts": [
+          "1845083",
+          "282555"
+        ],
         "time": 2.447608
       },
       "part2": {
         "solved": true,
         "result": "1498966",
-        "attempts": ["33688513"],
+        "attempts": [
+          "33688513"
+        ],
         "time": 2.311973
       }
     },
@@ -105,7 +113,9 @@
       "part1": {
         "solved": true,
         "result": "1713",
-        "attempts": ["3420"],
+        "attempts": [
+          "3420"
+        ],
         "time": 74.281219
       },
       "part2": {
@@ -119,7 +129,9 @@
       "part1": {
         "solved": true,
         "result": "6018",
-        "attempts": ["6017"],
+        "attempts": [
+          "6017"
+        ],
         "time": 12.951641
       },
       "part2": {
@@ -134,21 +146,21 @@
         "solved": true,
         "result": "11720",
         "attempts": [],
-        "time": 0.109236
+        "time": 0.112933
       },
       "part2": {
         "solved": true,
         "result": "ERCREPCJ",
         "attempts": [],
-        "time": 0.544628
+        "time": 0.582475
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "117624",
         "attempts": [],
-        "time": null
+        "time": 0.775305
       },
       "part2": {
         "solved": false,
