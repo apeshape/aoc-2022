@@ -15,48 +15,26 @@ const loglvl = (lvl, ...params) => {
   );
 };
 
-const compare = (pairs, lvl = 0) => {
+const compare = (left, right) => {
+  const pairs = zip(left, right);
   for (const [l, r] of pairs) {
-    loglvl(lvl, "- Compare", l, "vs", r);
-    if (typeof l === "undefined") {
-      loglvl(
-        lvl,
-        "- Left side ran out of items, so inputs are in the right order",
-      );
-      return true;
-    }
-    if (typeof r === "undefined") {
-      loglvl(
-        lvl,
-        "- Right side ran out of items, so inputs are not in the right order",
-      );
-      return false;
-    }
+    if (typeof l === "undefined") return -1;
+    if (typeof r === "undefined") return 1;
     if (typeof l === "number" && typeof r === "number") {
       if (l !== r) {
-        if (l < r) {
-          loglvl(
-            lvl,
-            "- Left side is smaller, so inputs are in the right order",
-          );
-          return l < r;
-        }
-        loglvl(
-          lvl,
-          "- Right side is smaller, so inputs are not in the right order",
-        );
-        return false;
+        return l < r ? -1 : 1;
       }
     }
+
     let res;
     if (typeof l === "object" && typeof r === "object") {
-      res = compare(zip(l, r), lvl + 1);
+      res = compare(l, r);
     }
     if (typeof l === "object" && typeof r === "number") {
-      res = compare(zip(l, [r]), lvl + 1);
+      res = compare(l, [r]);
     }
     if (typeof l === "number" && typeof r === "object") {
-      res = compare(zip([l], r), lvl + 1);
+      res = compare([l], r);
     }
     if (typeof res !== "undefined") return res;
   }
@@ -68,16 +46,8 @@ const part1 = (rawInput) => {
     .map((p) => p.split("\n").map((a) => JSON.parse(a)));
   let total = 0;
   pairs.forEach((p, i) => {
-    const left = p[0];
-    const right = p[1];
-    loglvl(-1, "Compare", left, "vs", right);
-    const zipped = zip(left, right);
-    const isCorrect = compare(zipped);
-    // if (!isCorrect) {
-    //   console.log(p);
-    // }
-    if (isCorrect) {
-      // console.log({ isCorrect }, i + 1);
+    const isCorrect = compare(p[0], p[1]);
+    if (isCorrect === -1) {
       total += i + 1;
     }
   });
@@ -85,9 +55,24 @@ const part1 = (rawInput) => {
 };
 
 const part2 = (rawInput) => {
-  const input = parseInput(rawInput);
+  const input = parseInput(rawInput)
+    .replace("\n\n", "\n")
+    .split("\n")
+    .filter((d) => d !== "")
+    .map(JSON.parse);
 
-  return;
+  const div1 = [[2]];
+  const div2 = [[6]];
+  input.push(div1);
+  input.push(div2);
+
+  const sorted = input.sort(compare);
+  const idx1 =
+    sorted.findIndex((e) => JSON.stringify(div1) === JSON.stringify(e)) + 1;
+  const idx2 =
+    sorted.findIndex((e) => JSON.stringify(div2) === JSON.stringify(e)) + 1;
+
+  return idx1 * idx2;
 };
 
 const testInput = `[1,1,3,1,1]
@@ -126,10 +111,10 @@ run({
   },
   part2: {
     tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
+      {
+        input: testInput,
+        expected: 140,
+      },
     ],
     solution: part2,
   },

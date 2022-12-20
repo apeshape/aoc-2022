@@ -191,13 +191,13 @@
           "9800",
           "10540"
         ],
-        "time": 1.835616
+        "time": 1.883932
       },
       "part2": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "21909",
         "attempts": [],
-        "time": null
+        "time": 10.620591
       }
     },
     {
